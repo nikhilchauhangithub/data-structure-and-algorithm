@@ -1,0 +1,29 @@
+import java.util.Arrays;
+
+public class buubleSortRecursion {
+    public static void main(String[] args) {
+        int[] arr={5,9,3,2}; //5 3 9 2
+        sort(arr,0, arr.length-1);
+        System.out.println(Arrays.toString(arr));
+    }
+    static void sort(int[] arr,int col,int endIndex){
+        if (endIndex==0){
+            return;
+        }
+        if (col<endIndex){
+            if (arr[col]>arr[col+1]){
+                swap(arr,col,col+1);
+            }
+            sort(arr,col+1,endIndex);
+
+        }
+        sort(arr,col,endIndex-1);
+    }
+
+    static void swap(int[] arr, int index1, int index2){
+        int temp=arr[index1];
+        arr[index1]=arr[index2];
+        arr[index2]=temp;
+    }
+
+}
