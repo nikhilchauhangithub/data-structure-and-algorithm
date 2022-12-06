@@ -1,0 +1,49 @@
+package com.company;
+
+import java.util.Arrays;
+
+public class quickSortRecursion {
+    public static void main(String[] args) {
+        int[] arr={1,0};
+        quicksort(arr,0, arr.length-1);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    static void quicksort(int[] arr,int start,int end){
+
+        if (start>=end){
+            return;
+        }
+
+//
+
+        int pivot=start+(end-start)/2;
+//
+
+        while (start<=end){
+            while (arr[start]<arr[pivot]){
+                start++;
+            }
+            while (arr[end]>arr[pivot]){
+                end--;
+            }
+            if (start<=end){
+                swap(arr,start,end);
+                start++;
+                end--;
+            }
+
+        }
+
+        quicksort(arr,0,pivot-1);
+        quicksort(arr,pivot+1,end);
+
+    }
+
+    static void swap(int[] arr, int index1, int index2){
+        int temp=arr[index1];
+        arr[index1]=arr[index2];
+        arr[index2]=temp;
+    }
+
+}
