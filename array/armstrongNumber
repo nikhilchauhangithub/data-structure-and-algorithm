@@ -1,0 +1,33 @@
+package com.company;
+import java.util.Scanner;
+
+public class armstrongNum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int input = sc.nextInt();
+
+        System.out.println(isArm(input));
+    }
+static boolean isArm(int input){
+
+            int rem;
+            int sum=0;
+
+            int orignal=input;
+
+            while (input>0){
+                rem=input%10;
+                input=input/10;
+                sum=(rem*rem*rem)+sum;
+
+            }
+            return orignal==sum;
+        }
+
+
+
+
+
+
+
+}
