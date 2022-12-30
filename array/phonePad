@@ -1,0 +1,30 @@
+package com.company;
+
+import java.util.ArrayList;
+
+public class phonePad {
+    public static void main(String[] args) {
+        ArrayList<String> finale=pad("","12");
+        System.out.println(finale);
+    }
+
+
+
+static ArrayList<String> pad(String p, String up){
+        if (up.isEmpty()){
+           ArrayList<String> res=new ArrayList<>();
+           res.add(p);
+            return res;
+        }
+        int digit=up.charAt(0)-'0';
+ArrayList<String> list=new ArrayList<>();
+        for (int i=(digit-1)*3;i<digit*3;i++){ //process shuru ho gyi processed k liye
+            char ch=(char)('a'+i);  //a+0 =a a+1=b a+2=c   //pehle hame abc milenge
+
+            list.addAll(pad(p+ch,up.substring(1)));
+
+            //pehle abc k liye recursion hoga a/2 b/2 b/3,
+        }
+return list;
+}
+}
