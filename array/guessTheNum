@@ -1,0 +1,26 @@
+package com.company;
+
+import java.util.ArrayList;
+
+public class diceQue {
+    public static void main(String[] args) {
+ArrayList<Integer> ans=dice("",4);
+        System.out.println(ans);
+    }
+
+    static ArrayList<Integer> dice(String p, int target){
+        if (target==0){
+           ArrayList<Integer> res=new ArrayList<>();
+res.add(Integer.valueOf(p));
+return res;
+        }
+        ArrayList<Integer> list=new ArrayList<>();
+        for (int i=1;i<=6 && i<=target;i++){
+
+list.addAll(dice(p+i,target-i));
+
+        }
+return list;
+    }
+
+}
